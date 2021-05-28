@@ -34,7 +34,8 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "multi-step-form"
   ],
   "repository": "https://github.com/samassango/react-native-multi-steps",
   "author": "samassango <samassango@gmail.com> (https://github.com/samassango)",
