@@ -2,7 +2,7 @@
 
 This component aimed to enable navigating from it's child component using multi step approach which will help in creating multi step forms, viewing item by item etc..
 
-
+![Preview]()
 
 
 ## Installation
