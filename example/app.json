@@ -1,0 +1,22 @@
+{
+  "name": "react-native-multi-steps-example",
+  "displayName": "MultiSteps Example",
+  "expo": {
+    "name": "react-native-multi-steps-example",
+    "slug": "react-native-multi-steps-example",
+    "description": "Example app for react-native-multi-steps",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
