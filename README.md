@@ -13,6 +13,20 @@ npm install react-native-multi-steps
 
 ## Usage
 
+## props
+
+
+| Props                  | Optional | Type      | Description                                                                    |
+| ---------------------- | -------- | --------- | ------------------------------------------------------------------------------ |
+| containerStyle         | Yes      | Object    | Used to style the components container                                         |
+| containerButtonStyle   | Yes      | Object    | Used to style the button container                                             |
+| buttonStyle            | Yes      | Object    | Used to style the button                                                       |
+| buttonLabelStyle       | Yes      | Object    | Used to style the button label                                                 |
+| onMoveNext             | No       | function  | Moving to the next child view                                                  |
+| onMovePrevious         | No       | function  | Moving to the previous child view                                              |
+| onSubmit               | Yes      | function  | Called on submit only when the function is available as a property             |
+
+
 ```js
 import MultiSteps from "react-native-multi-steps";
 
