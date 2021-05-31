@@ -25,7 +25,7 @@ npm install react-native-multi-steps
 | onMoveNext             | No       | function  | Moving to the next child view                                                  |
 | onMovePrevious         | No       | function  | Moving to the previous child view                                              |
 | onSubmit               | Yes      | function  | Called on submit only when the function is available as a property             |
-
+| config                 | Yes      | Object    | Config buttons label to your specification eg: rename button                   |
 
 ```js
 import MultiSteps from "react-native-multi-steps";
