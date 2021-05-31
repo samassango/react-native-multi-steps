@@ -62,7 +62,9 @@ function RNMultiStep(props: any): any {
             style={props.buttonStyle ? props.buttonStyle : styles.styleBtn}
             onPress={onPrevious}
           >
-            <Text style={props.buttonLabelStyle ? props.buttonLabelStyle : styles.styleBtnLabel}>Previous</Text>
+            <Text style={props.buttonLabelStyle ? props.buttonLabelStyle : styles.styleBtnLabel}>
+              {props.config.previousButtonLabel ? props.config.previousButtonLabel : 'Previous'}
+            </Text>
           </TouchableOpacity>
         }
 
@@ -71,7 +73,9 @@ function RNMultiStep(props: any): any {
             style={props.buttonStyle ? props.buttonStyle : styles.styleBtn}
             onPress={onNext}
           >
-            <Text style={props.buttonLabelStyle ? props.buttonLabelStyle : styles.styleBtnLabel}>Next</Text>
+            <Text style={props.buttonLabelStyle ? props.buttonLabelStyle : styles.styleBtnLabel}>
+              {props.config.nextButtonLabel ? props.config.nextButtonLabel : 'Next'}
+            </Text>
           </TouchableOpacity>
         }
         {!canMove.canMoveNext &&
@@ -80,7 +84,9 @@ function RNMultiStep(props: any): any {
             style={props.buttonStyle ? props.buttonStyle : styles.styleBtn}
             onPress={onSubmit}
           >
-            <Text style={props.buttonLabelStyle ? props.buttonLabelStyle : styles.styleBtnLabel}>Submit</Text>
+            <Text style={props.buttonLabelStyle ? props.buttonLabelStyle : styles.styleBtnLabel}>
+              {props.config.submitButtonLabel ? props.config.submitButtonLabel : 'Submit'}
+            </Text>
           </TouchableOpacity>
         }
       </View>
@@ -129,6 +135,11 @@ RNMultiStep.propTypes = {
   buttonLabelStyle: PropTypes.object,
   onMoveNext: PropTypes.func,
   onMovePrevious: PropTypes.func,
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func,
+  config: PropTypes.shape({
+    nextButtonLabel: PropTypes.string,
+    previousButtonLabel: PropTypes.string,
+    submitButtonLabel: PropTypes.string
+  })
 };
 export default RNMultiStep;
