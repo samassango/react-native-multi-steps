@@ -49,6 +49,7 @@ onMovePrevious={(data)=>{console.log(data)}}
 //onSubmit is optional, only implement it whever you need to use it
 onSubmit={()=>{console.log('Submiting')}}
 />
+
 //Implementation with config object
 <MultiSteps 
 //Move to the next item
