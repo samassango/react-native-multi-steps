@@ -49,6 +49,20 @@ onMovePrevious={(data)=>{console.log(data)}}
 //onSubmit is optional, only implement it whever you need to use it
 onSubmit={()=>{console.log('Submiting')}}
 />
+//Implementation with config object
+<MultiSteps 
+//Move to the next item
+onMoveNext={(data)=>{console.log(data) }} 
+//Move to the previous item 
+onMovePrevious={(data)=>{console.log(data)}} 
+//onSubmit is optional, only implement it whever you need to use it
+onSubmit={()=>{console.log('Submiting')}}
+config ={{
+   nextButtonLabel: 'Next Section',
+    previousButtonLabel: 'Previous Section',
+    submitButtonLabel: 'Done'
+}}
+/>
 ```
 # Example
 ```js
