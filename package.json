@@ -1,6 +1,6 @@
 {
   "name": "react-native-multi-steps",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "This component aimed to enable navigating from it's child component using multi step approach which will help in creating multi step forms, viewing item by item etc..",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
