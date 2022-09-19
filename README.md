@@ -2,6 +2,8 @@
 
 This component aimed to enable navigating from it's child component using multi step approach which will help in creating multi step forms, viewing item by item etc..
 
+The new version of react-native-multi-steps now support conditional rendering.
+
 ![Preview](https://github.com/samassango/react-native-multi-steps/blob/main/screenshot.gif)
 
 
@@ -83,6 +85,26 @@ export default function App() {
             A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add one idea at a time to your broader argument.
            </Text>
         </View>
+        {show && (
+        <View>
+          <Text style={{ fontSize: 30, fontWeight: 'bold' }}>
+            Show this section
+          </Text>
+          <Text>
+            Piedmont, or mountain, glaciers are found in many parts of the 
+            world. In North America they are distributed along the mountain
+            ranges of the Pacific Coast from central California northward. They
+            abound in the Andes range in South America and are familiar and
+            greatly admired spectacles in the Alps, the Pyrenees, the Caucasus
+            Mountains and the mountains of Scandanavia. Rivers of ice flow down
+            the valleys of various Asian mountain ranges, including the
+            Himalayas, the Hindu Kush, and the Karakoram and Kunlun ranges. They
+            are also a feature of the Southern Alps of New Zealand and are found
+            in the lofty mountains of New Guinea. The largest piedmont glaciers
+            are the Malaspina and Bering glaciers, both in Alaska.
+          </Text>
+        </View>
+        )}
         <View>
           <Text>
             Piedmont, or mountain, glaciers are found in many parts of the world. In North America they are distributed along the mountain ranges of the Pacific Coast from central California northward. They abound in the Andes range in South America and are familiar and greatly admired spectacles in the Alps, the Pyrenees, the Caucasus Mountains and the mountains of Scandanavia. Rivers of ice flow down the valleys of various Asian mountain ranges, including the Himalayas, the Hindu Kush, and the Karakoram and Kunlun ranges. They are also a feature of the Southern Alps of New Zealand and are found in the lofty mountains of New Guinea. The largest piedmont glaciers are the Malaspina and Bering glaciers, both in Alaska. </Text>
