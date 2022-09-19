@@ -1,7 +1,13 @@
-
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  ActivityIndicator,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from 'react-native';
 
 function RNMultiStep(props: any): any {
   const [stepIndex, setStepIndex] = useState(0);
@@ -12,24 +18,28 @@ function RNMultiStep(props: any): any {
   });
   const [isSubmit, setIsSubmit] = useState(false);
 
-  useEffect(function () {
-    setComponent(props.children[stepIndex]);
-    },
+  useEffect(
+    () => setComponent(props.children[stepIndex]),
     [stepIndex, props.children]
   );
 
-  useEffect(function () {
-    setIsSubmit(isSubmit);
-    },
-    [props.onSubmit, isSubmit]
-  );
+  useEffect(() => setIsSubmit(isSubmit), [props.onSubmit, isSubmit]);
 
   function onNext(): void {
-    const step = stepIndex + 1;
+    let step = stepIndex + 1;
     const len = props.children.length - 1;
     let isNextValid = step === len ? false : true;
     let isPrevious = step > 0 ? true : false;
-    if (!props.children[step]) {
+    let child = props.children[step];
+    if (!!child) {
+      setCanMove({
+        canMoveNext: isNextValid,
+        canMovePrevious: isPrevious,
+      });
+      setStepIndex(step);
+    } else {
+      step = step + 1;
+      isNextValid = step === len ? false : true;
       setCanMove({
         canMoveNext: isNextValid,
         canMovePrevious: isPrevious,
@@ -41,15 +51,26 @@ function RNMultiStep(props: any): any {
 
   function onPrevious(): void {
     if (stepIndex !== 0) {
-      const step = stepIndex - 1;
-
+      let step = stepIndex - 1;
       let isPreviousValid = step === 0 ? false : true;
       let isNext = step === props.children.length - 1 ? false : true;
-      setCanMove({
-        canMoveNext: isNext,
-        canMovePrevious: isPreviousValid
-      });
-      setStepIndex(step);
+      let child = props.children[step];
+      if (child) {
+        setCanMove({
+          canMoveNext: isNext,
+          canMovePrevious: isPreviousValid,
+        });
+        setStepIndex(step);
+      } else {
+        step = step - 1;
+        isPreviousValid = step === 0 ? false : true;
+        isNext = step === props.children.length - 1 ? false : true;
+        setCanMove({
+          canMoveNext: isNext,
+          canMovePrevious: isPreviousValid,
+        });
+        setStepIndex(step);
+      }
     }
     props.onMovePrevious(canMove);
   }
@@ -87,7 +108,7 @@ function RNMultiStep(props: any): any {
                   : styles.styleBtnLabel
               }
             >
-              {props.config.previousButtonLabel
+              {props?.config?.previousButtonLabel
                 ? props.config.previousButtonLabel
                 : 'Previous'}
             </Text>
@@ -106,7 +127,7 @@ function RNMultiStep(props: any): any {
                   : styles.styleBtnLabel
               }
             >
-              {props.config.nextButtonLabel
+              {props?.config?.nextButtonLabel
                 ? props.config.nextButtonLabel
                 : 'Next'}
             </Text>
@@ -124,7 +145,7 @@ function RNMultiStep(props: any): any {
                   : styles.styleBtnLabel
               }
             >
-              {props.config.submitButtonLabel
+              {props?.config?.submitButtonLabel
                 ? props.config.submitButtonLabel
                 : 'Submit'}
             </Text>
