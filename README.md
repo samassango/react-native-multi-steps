@@ -77,6 +77,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <MultiSteps
+        containerButtonStyle={styles.containerButtonStyle}
         onMoveNext={function (data: any): void { console.log("next", data) }}
         onMovePrevious={function (data: any): void { console.log("previous", data) }}
         onSubmit={function () { console.log('Submit') }}>
@@ -137,7 +138,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     margin: 20,
   },
-
+ containerButtonStyle:{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'flex-end',
+          paddingLeft: 10,
+          paddingRight: 30,
+        }
 });
 
 ```

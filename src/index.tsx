@@ -170,8 +170,11 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   fixToText: {
+    display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
+    paddingLeft: 10,
+    paddingRight: 30,
   },
   styleBtn: {
     alignItems: 'center',
