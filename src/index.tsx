@@ -98,7 +98,7 @@ function RNMultiStep(props: any): any {
       >
         {canMove.canMovePrevious && (
           <TouchableOpacity
-            style={props.buttonStyle ? props.buttonStyle : styles.styleBtn}
+            style={props.prevButtonStyle ? props.prevButtonStyle : styles.prevStyleBtn}
             onPress={onPrevious}
           >
             <Text
@@ -117,7 +117,7 @@ function RNMultiStep(props: any): any {
 
         {canMove.canMoveNext && (
           <TouchableOpacity
-            style={props.buttonStyle ? props.buttonStyle : styles.styleBtn}
+            style={props.nextButtonStyle ? props.nextButtonStyle : styles.styleBtn}
             onPress={onNext}
           >
             <Text
@@ -135,7 +135,7 @@ function RNMultiStep(props: any): any {
         )}
         {!canMove.canMoveNext && typeof props.onSubmit === 'function' && (
           <TouchableOpacity
-            style={props.buttonStyle ? props.buttonStyle : styles.styleBtn}
+            style={props.submitButtonStyle ? props.submitButtonStyle : styles.submitStyleBtn}
             onPress={onSubmit}
           >
             <Text
@@ -176,7 +176,25 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 30,
   },
-  styleBtn: {
+  prevStyleBtn: {
+    alignItems: 'center',
+    backgroundColor: '#1e1ee3',
+    borderRadius: 50,
+    shadowColor: '#5252d1',
+    margin: 10,
+    padding: 20,
+    width: '40%',
+  },
+  submitStyleBtn: {
+    alignItems: 'center',
+    backgroundColor: 'grey',
+    borderRadius: 50,
+    shadowColor: '#5252d1',
+    margin: 10,
+    padding: 20,
+    width: '40%',
+  },
+  nextStyleBtn: {
     alignItems: 'center',
     backgroundColor: '#1e1ee3',
     borderRadius: 50,
@@ -194,7 +212,9 @@ RNMultiStep.propTypes = {
   children: PropTypes.any,
   containerStyle: PropTypes.object,
   containerButtonStyle: PropTypes.object,
-  buttonStyle: PropTypes.object,
+  prevButtonStyle: PropTypes.object,
+  nextButtonStyle: PropTypes.object,
+  submitButtonStyle: PropTypes.object,
   buttonLabelStyle: PropTypes.object,
   onMoveNext: PropTypes.func,
   onMovePrevious: PropTypes.func,
