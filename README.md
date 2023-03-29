@@ -14,7 +14,7 @@ npm install react-native-multi-steps
 ```
 
 ## Usage
-### NB: buttonstyle is deprecated from this verison. 
+### NB: buttonstyle is deprecated from this verison 0.1.8. 
 It will be replaced by nextButtonStyle, previousButtonStyle and submitButtonStyle. This change will Developers to have controll on how they want to customize each and every button. All thanks to [Anand Kumar](https://github.com/anand-netzoptimize) our new contributor
 ## props
 
