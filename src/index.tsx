@@ -6,9 +6,15 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
 } from 'react-native';
 
+function isNextItem(step: number, len: number): boolean {
+  return !(step === len);
+}
+function isPreviousValidItem(step: number): boolean {
+  return !(step === 0);
+}
 function RNMultiStep(props: any): any {
   const [stepIndex, setStepIndex] = useState(0);
   const [Component, setComponent] = useState(null);
@@ -28,10 +34,10 @@ function RNMultiStep(props: any): any {
   function onNext(): void {
     let step = stepIndex + 1;
     const len = props.children.length - 1;
-    let isNextValid = step === len ? false : true;
+    let isNextValid = isNextItem(step, len);
     let isPrevious = step > 0 ? true : false;
     let child = props.children[step];
-    if (!!child) {
+    if (child) {
       setCanMove({
         canMoveNext: isNextValid,
         canMovePrevious: isPrevious,
@@ -39,7 +45,7 @@ function RNMultiStep(props: any): any {
       setStepIndex(step);
     } else {
       step = step + 1;
-      isNextValid = step === len ? false : true;
+      isNextValid = isNextItem(step, len);
       setCanMove({
         canMoveNext: isNextValid,
         canMovePrevious: isPrevious,
@@ -52,8 +58,8 @@ function RNMultiStep(props: any): any {
   function onPrevious(): void {
     if (stepIndex !== 0) {
       let step = stepIndex - 1;
-      let isPreviousValid = step === 0 ? false : true;
-      let isNext = step === props.children.length - 1 ? false : true;
+      let isPreviousValid = isPreviousValidItem(step); //step === 0 ? false : true;
+      let isNext = isNextItem(step, props.children.length - 1);
       let child = props.children[step];
       if (child) {
         setCanMove({
@@ -63,8 +69,8 @@ function RNMultiStep(props: any): any {
         setStepIndex(step);
       } else {
         step = step - 1;
-        isPreviousValid = step === 0 ? false : true;
-        isNext = step === props.children.length - 1 ? false : true;
+        isPreviousValid = isPreviousValidItem(step);
+        isNext = isNextItem(step, props.children.length - 1);
         setCanMove({
           canMoveNext: isNext,
           canMovePrevious: isPreviousValid,
@@ -81,7 +87,7 @@ function RNMultiStep(props: any): any {
     <SafeAreaView
       style={props.containerStyle ? props.containerStyle : styles.container}
     >
-      {Component !== null ? (
+      {Component ? (
         Component
       ) : (
         <View>

@@ -2,13 +2,12 @@ import * as React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import MultiSteps from 'react-native-multi-steps';
 
-
-export default function App(props) {
+export default function App() {
   const [show, setShow] = React.useState<boolean>(false);
 
   return (
     <View style={styles.container}>
-      <Button onPress={() => setShow(!show)} title="show section"/>
+      <Button onPress={() => setShow(!show)} title="show section" />
       <MultiSteps
         onMoveNext={function (data: any): void {
           console.log('next', data);
@@ -30,24 +29,23 @@ export default function App(props) {
           </Text>
         </View>
         {show && (
-        <View>
-          <Text style={{ fontSize: 30, fontWeight: 'bold' }}>
-            Show this section
-          </Text>
-          <Text>
-            Piedmont, or mountain, glaciers are found in many parts of the 
-            world. In North America they are distributed along the mountain
-            ranges of the Pacific Coast from central California northward. They
-            abound in the Andes range in South America and are familiar and
-            greatly admired spectacles in the Alps, the Pyrenees, the Caucasus
-            Mountains and the mountains of Scandanavia. Rivers of ice flow down
-            the valleys of various Asian mountain ranges, including the
-            Himalayas, the Hindu Kush, and the Karakoram and Kunlun ranges. They
-            are also a feature of the Southern Alps of New Zealand and are found
-            in the lofty mountains of New Guinea. The largest piedmont glaciers
-            are the Malaspina and Bering glaciers, both in Alaska.
-          </Text>
-        </View>
+          <View>
+            <Text style={styles.text}>Show this section</Text>
+            <Text>
+              Piedmont, or mountain, glaciers are found in many parts of the
+              world. In North America they are distributed along the mountain
+              ranges of the Pacific Coast from central California northward.
+              They abound in the Andes range in South America and are familiar
+              and greatly admired spectacles in the Alps, the Pyrenees, the
+              Caucasus Mountains and the mountains of Scandanavia. Rivers of ice
+              flow down the valleys of various Asian mountain ranges, including
+              the Himalayas, the Hindu Kush, and the Karakoram and Kunlun
+              ranges. They are also a feature of the Southern Alps of New
+              Zealand and are found in the lofty mountains of New Guinea. The
+              largest piedmont glaciers are the Malaspina and Bering glaciers,
+              both in Alaska.
+            </Text>
+          </View>
         )}
         <View>
           <Text>
@@ -88,4 +86,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     margin: 20,
   },
+  text: { fontSize: 30, fontWeight: 'bold' },
 });
