@@ -104,7 +104,11 @@ function RNMultiStep(props: any): any {
       >
         {canMove.canMovePrevious && (
           <TouchableOpacity
-            style={props.prevButtonStyle ? props.prevButtonStyle : styles.prevStyleBtn}
+            style={
+              props.prevButtonStyle
+                ? props.prevButtonStyle
+                : styles.prevStyleBtn
+            }
             onPress={onPrevious}
           >
             <Text
@@ -123,7 +127,11 @@ function RNMultiStep(props: any): any {
 
         {canMove.canMoveNext && (
           <TouchableOpacity
-            style={props.nextButtonStyle ? props.nextButtonStyle : styles.styleBtn}
+            style={
+              props.nextButtonStyle
+                ? props.nextButtonStyle
+                : styles.nextStyleBtn
+            }
             onPress={onNext}
           >
             <Text
@@ -141,7 +149,11 @@ function RNMultiStep(props: any): any {
         )}
         {!canMove.canMoveNext && typeof props.onSubmit === 'function' && (
           <TouchableOpacity
-            style={props.submitButtonStyle ? props.submitButtonStyle : styles.submitStyleBtn}
+            style={
+              props.submitButtonStyle
+                ? props.submitButtonStyle
+                : styles.submitStyleBtn
+            }
             onPress={onSubmit}
           >
             <Text

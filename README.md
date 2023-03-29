@@ -14,7 +14,8 @@ npm install react-native-multi-steps
 ```
 
 ## Usage
-
+### NB: buttonstyle is deprecated from this verison. 
+It will be replaced by nextButtonStyle, previousButtonStyle and submitButtonStyle. This change will Developers to have controll on how they want to customize each and every button. All thanks to [Anand Kumar](https://github.com/anand-netzoptimize) our new contributor
 ## props
 
 
@@ -22,7 +23,10 @@ npm install react-native-multi-steps
 | ---------------------- | -------- | ------------- | ------------------------------------------------------------------------------ |
 | containerStyle         | ``Yes``  | ``Object``    | Used to style the components container                                         |
 | containerButtonStyle   | ``Yes``  | ``Object``    | Used to style the button container                                             |
-| buttonStyle            | ``Yes``  | ``Object``    | Used to style the button                                                       |
+| buttonStyle            | ``Yes``  | ``Object``    | Used to style the button  ``Deprecated``                                       |
+| prevButtonStyle        | ``Yes``  | ``Object``    | Used to style the button                                                       |
+| nextButtonStyle        | ``Yes``  | ``Object``    | Used to style the button                                                       |
+| submitButtonStyle      | ``Yes``  | ``Object``    | Used to style the button                                                       |
 | buttonLabelStyle       | ``Yes``  | ``Object``    | Used to style the button label                                                 |
 | onMoveNext             | ``No``   | ``function``  | Moving to the next child view                                                  |
 | onMovePrevious         | ``No``   | ``function``  | Moving to the previous child view                                              |
